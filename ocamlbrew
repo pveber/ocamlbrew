@@ -325,6 +325,8 @@ function brew_findlib() {
             say Extracting and building findlib
             tar xzf findlib-$FINDLIB_VERSION.tar.gz
             cd findlib-$FINDLIB_VERSION
+	    wget http://gallium.inria.fr/~doligez/ocaml-4.00.0-compatibility-patches/findlib-1.3.1.patch
+	    patch -p1 < findlib-1.3.1.patch
             ./configure
             make all opt
             ;;
